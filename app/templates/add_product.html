@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-4">
+            <!-- Empty colomen -->
+        </div>
+        <div class="col-md-4">
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.product_name.label }} <br>
+                    {{ form.product_name(size=32) }}<br>
+                    {% for error in form.product_name.errors %}
+                        <span style="color: rebeccapurple;">
+                            {{ error }}
+                        </span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.product_description.label }} <br>
+                    {{ form.product_description(size=32) }}<br>
+                    {% for error in form.product_description.errors %}
+                        <span style="color: rebeccapurple;">
+                            {{ error }}
+                        </span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.stock_available.label }} <br>
+                    {{ form.stock_available}}<br>
+                    {% for error in form.stock_available.errors %}
+                        <span style="color: rebeccapurple;">
+                            {{ error }}
+                        </span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.submit() }}
+                </p>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <!-- Empty -->
+        </div>
+    </div>
+{% endblock %}
